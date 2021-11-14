@@ -6,30 +6,30 @@ import styled from "styled-components";
 const Header = () => {
 	return (
 		<Nav>
-			<Logo src="./images/logo.svg" />
+			<Logo src="/images/logo.svg" />
 			<NavMenu>
-				<a>
-					<img src="/images/home-icon.svg" />
+				<a href="/">
+					<img alt="" src="/images/home-icon.svg" />
 					<span>HOME</span>
 				</a>
-				<a>
-					<img src="/images/search-icon.svg" />
+				<a href="/">
+					<img alt="" src="/images/search-icon.svg" />
 					<span>SEARCH</span>
 				</a>
-				<a>
-					<img src="/images/watchlist-icon.svg" />
+				<a href="/">
+					<img alt="" src="/images/watchlist-icon.svg" />
 					<span>WATCHLIST</span>
 				</a>
-				<a>
-					<img src="/images/original-icon.svg" />
+				<a href="/">
+					<img alt="" src="/images/original-icon.svg" />
 					<span>ORIGINAL</span>
 				</a>
-				<a>
-					<img src="/images/movie-icon.svg" />
+				<a href="/">
+					<img alt="" src="/images/movie-icon.svg" />
 					<span>MOVIES</span>
 				</a>
-				<a>
-					<img src="/images/series-icon.svg" />
+				<a href="/">
+					<img alt="" src="/images/series-icon.svg" />
 					<span>SERIES</span>
 				</a>
 			</NavMenu>
@@ -75,6 +75,7 @@ const NavMenu = styled.div`
 			font-size: 13px;
 			letter-spacing: 1.42px;
 			position: relative;
+			color: white;
 
 			&:after {
 				content: "";
@@ -97,6 +98,12 @@ const NavMenu = styled.div`
 				opacity: 1;
 			}
 		}
+	}
+
+	a:link,
+	a:visited,
+	a:active {
+		text-decoration: none;
 	}
 `;
 

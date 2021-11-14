@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Movies from "./Movies";
 import Viewers from "./Viewers";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../firabase";
+import { useDispatch } from "react-redux";
+import { setMovies } from "../features/movie/movieSlice";
 
 // ---- Component ----
 
 const Home = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const obtainFirebaseData = async () => {
+			const data = await getDocs(collection(db, "movies"));
+			let tempMovies = data.docs.map((doc) => {
+				return { id: doc.id, ...doc.data() };
+			});
+
+			dispatch(setMovies(tempMovies));
+		};
+		obtainFirebaseData();
+	}, [dispatch]);
+
 	return (
 		<Container>
 			<ImgSlider />

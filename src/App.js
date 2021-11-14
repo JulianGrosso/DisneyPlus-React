@@ -3,7 +3,6 @@ import {
 	BrowserRouter as Router,
 	Routes as Switch,
 	Route,
-	Link,
 } from "react-router-dom";
 import "./App.css";
 import Detail from "./components/Detail";
@@ -17,9 +16,9 @@ function App() {
 			<Router>
 				<Header />
 				<Switch>
-					<Route path="/login" element={<Login />} />
-					<Route path="/detail" element={<Detail />} />
-					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} exact />
+					<Route path="/detail/:id" element={<Detail />} exact />
+					<Route path="/" element={<Home />} exact />
 				</Switch>
 			</Router>
 		</>
