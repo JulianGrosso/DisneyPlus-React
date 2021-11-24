@@ -7,6 +7,7 @@ import { collection, getDocs } from "firebase/firestore";
 import db from "../firabase";
 import { useDispatch } from "react-redux";
 import { setMovies } from "../features/movie/movieSlice";
+import Header from "./Header";
 
 // ---- Component ----
 
@@ -26,11 +27,14 @@ const Home = () => {
 	}, [dispatch]);
 
 	return (
+		<>
+		<Header />
 		<Container>
 			<ImgSlider />
 			<Viewers />
 			<Movies />
 		</Container>
+		</>
 	);
 };
 

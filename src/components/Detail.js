@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firabase";
+import Header from "./Header";
 
 // ---- Component ----
 
@@ -23,36 +24,39 @@ const Detail = () => {
 	}, [id]);
 
 	return (
-		<Container>
-			{movie && (
-				<>
-					<Background>
-						<img src={movie.backgroundImg} alt={movie.title} />
-					</Background>
-					<ImageTitle>
-						<img src={movie.titleImg} alt={movie.title} />
-					</ImageTitle>
-					<Controls>
-						<PlayButton>
-							<img src="/images/play-icon-black.png" alt="Play" />
-							<span>PLAY</span>
-						</PlayButton>
-						<TrailerButton>
-							<img src="/images/play-icon-white.png" alt="Trailer" />
-							<span>Trailer</span>
-						</TrailerButton>
-						<AddButton>
-							<span>+</span>
-						</AddButton>
-						<GroupWatchButton>
-							<img src="/images/group-icon.png" alt="Group" />
-						</GroupWatchButton>
-					</Controls>
-					<SubTitle>{movie.subTitle}</SubTitle>
-					<Description>{movie.description}</Description>
-				</>
-			)}
-		</Container>
+		<>
+			<Header />
+			<Container>
+				{movie && (
+					<>
+						<Background>
+							<img src={movie.backgroundImg} alt={movie.title} />
+						</Background>
+						<ImageTitle>
+							<img src={movie.titleImg} alt={movie.title} />
+						</ImageTitle>
+						<Controls>
+							<PlayButton>
+								<img src="/images/play-icon-black.png" alt="Play" />
+								<span>PLAY</span>
+							</PlayButton>
+							<TrailerButton>
+								<img src="/images/play-icon-white.png" alt="Trailer" />
+								<span>Trailer</span>
+							</TrailerButton>
+							<AddButton>
+								<span>+</span>
+							</AddButton>
+							<GroupWatchButton>
+								<img src="/images/group-icon.png" alt="Group" />
+							</GroupWatchButton>
+						</Controls>
+						<SubTitle>{movie.subTitle}</SubTitle>
+						<Description>{movie.description}</Description>
+					</>
+				)}
+			</Container>
+		</>
 	);
 };
 
