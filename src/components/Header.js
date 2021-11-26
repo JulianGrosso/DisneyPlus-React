@@ -8,27 +8,27 @@ const Header = () => {
 		<Nav>
 			<Logo src="/images/logo.svg" />
 			<NavMenu>
-				<a href="/home">
+				<a href="#/home">
 					<img src="/images/home-icon.svg" alt="Home" />
 					<span>HOME</span>
 				</a>
-				<a href="/home">
+				<a href="#/home">
 					<img src="/images/search-icon.svg" alt="Search" />
 					<span>SEARCH</span>
 				</a>
-				<a href="/home">
+				<a href="#/home">
 					<img src="/images/watchlist-icon.svg" alt="Watchlist" />
 					<span>WATCHLIST</span>
 				</a>
-				<a href="/home">
+				<a href="#/home">
 					<img src="/images/original-icon.svg" alt="Original" />
 					<span>ORIGINAL</span>
 				</a>
-				<a href="/home">
+				<a href="#/home">
 					<img src="/images/movie-icon.svg" alt="Movies" />
 					<span>MOVIES</span>
 				</a>
-				<a href="/home">
+				<a href="#/home">
 					<img src="/images/series-icon.svg" alt="Series" />
 					<span>SERIES</span>
 				</a>

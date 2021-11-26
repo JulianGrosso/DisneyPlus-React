@@ -1,7 +1,7 @@
 import React from "react";
 import {
-	BrowserRouter as Router,
-	Routes as Switch,
+	HashRouter as Router,
+	Routes,
 	Route,
 } from "react-router-dom";
 import "./App.css";
@@ -13,11 +13,11 @@ function App() {
 	return (
 		<>
 			<Router>
-				<Switch>
+				<Routes>
 					<Route path="/" element={<Login />} exact />
 					<Route path="/detail/:id" element={<Detail />} exact />
 					<Route path="/home" element={<Home />} exact />
-				</Switch>
+				</Routes>
 			</Router>
 		</>
 	);
