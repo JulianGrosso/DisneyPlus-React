@@ -33,7 +33,7 @@ const Header = () => {
 					<span>SERIES</span>
 				</a>
 			</NavMenu>
-			<UserImg src="https://lh3.googleusercontent.com/ogw/ADea4I7HKmofHc3qfwLeD5B47iQXrdpZTRfQ0LH_r_NUaw=s83-c-mo" />
+			<UserImg src="/images/user-default-img.png" />
 		</Nav>
 	);
 };
@@ -49,6 +49,10 @@ const Nav = styled.nav`
 	align-items: center;
 	padding: 0 36px;
 	overflow-x: hidden;
+
+	@media (max-width: 768px) {
+		justify-content: space-between;
+	}
 `;
 
 const Logo = styled.img`
@@ -104,6 +108,10 @@ const NavMenu = styled.div`
 	a:visited,
 	a:active {
 		text-decoration: none;
+	}
+
+	@media (max-width: 768px) {
+		display: none;
 	}
 `;
 
