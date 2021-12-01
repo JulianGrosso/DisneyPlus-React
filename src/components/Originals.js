@@ -6,44 +6,55 @@ import { useSelector } from "react-redux";
 
 // ---- Component ----
 
-const Movies = () => {
+const Originals = () => {
 	const movies = useSelector(selectMovies);
 
 	return (
 		<Container>
-			<h4> Recommended for You</h4>
+			<h4>Originals</h4>
 			<Content>
 				{movies &&
-					movies.map((movie) => (
-						<Wrap key={movie.id}>
-							<Link to={`/detail/${movie.id}`}>
-								<img src={movie.cardImg} alt={movie.title} />
-							</Link>
-						</Wrap>
-					))}
+					movies.map((movie) => {
+						if (movie.type === "original") {
+							return (
+								<Wrap key={movie.id}>
+									<Link to={`/detail/${movie.id}`}>
+										<img src={movie.cardImg} alt={movie.title} />
+									</Link>
+								</Wrap>
+							);
+						}
+						return null;
+					})}
 			</Content>
 		</Container>
 	);
 };
 
-export default Movies;
+export default Originals;
 
 // ---- Style ----
 
 const Container = styled.div`
-	padding-bottom: 0;
+	padding-bottom: 0 0 26px;
 	margin-bottom: 2rem;
 `;
 
 const Content = styled.div`
 	display: grid;
 	grid-gap: 25px;
+	gap: 25px;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
+
+	@media (max-width: 768px) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 `;
 
 const Wrap = styled.div`
 	border-radius: 10px;
 	overflow: hidden;
+	cursor: pointer;
 	border: 3px solid rgba(249, 249, 249, 0.1);
 	box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
 		rgb(0 0 0 / 73%) 0px 16px 10px -10px;

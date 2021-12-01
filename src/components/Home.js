@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
-import Movies from "./Movies";
 import Viewers from "./Viewers";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firabase";
 import { useDispatch } from "react-redux";
 import { setMovies } from "../features/movie/movieSlice";
 import Header from "./Header";
+import Recommends from "./Recommends";
+import NewDisney from "./NewDisney";
+import Originals from "./Originals";
+import Trending from "./Trending";
 
 // ---- Component ----
 
@@ -28,12 +31,15 @@ const Home = () => {
 
 	return (
 		<>
-		<Header />
-		<Container>
-			<ImgSlider />
-			<Viewers />
-			<Movies />
-		</Container>
+			<Header />
+			<Container>
+				<ImgSlider />
+				<Viewers />
+				<Recommends />
+				<NewDisney />
+				<Originals />
+				<Trending />
+			</Container>
 		</>
 	);
 };
