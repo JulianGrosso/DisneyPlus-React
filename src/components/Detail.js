@@ -36,20 +36,24 @@ const Detail = () => {
 							<img src={movie.titleImg} alt={movie.title} />
 						</ImageTitle>
 						<Controls>
-							<PlayButton>
-								<img src="/images/play-icon-black.png" alt="Play" />
-								<span>PLAY</span>
-							</PlayButton>
-							<TrailerButton>
-								<img src="/images/play-icon-white.png" alt="Trailer" />
-								<span>Trailer</span>
-							</TrailerButton>
-							<AddButton>
-								<span>+</span>
-							</AddButton>
-							<GroupWatchButton>
-								<img src="/images/group-icon.png" alt="Group" />
-							</GroupWatchButton>
+							<ButtonWrap01>
+								<PlayButton>
+									<img src="/images/play-icon-black.png" alt="Play" />
+									<span>PLAY</span>
+								</PlayButton>
+								<TrailerButton>
+									<img src="/images/play-icon-white.png" alt="Trailer" />
+									<span>Trailer</span>
+								</TrailerButton>
+							</ButtonWrap01>
+							<ButtonWrap02>
+								<AddButton>
+									<span>+</span>
+								</AddButton>
+								<GroupWatchButton>
+									<img src="/images/group-icon.png" alt="Group" />
+								</GroupWatchButton>
+							</ButtonWrap02>
 						</Controls>
 						<SubTitle>{movie.subTitle}</SubTitle>
 						<Description>{movie.description}</Description>
@@ -93,18 +97,36 @@ const ImageTitle = styled.div`
 	width: 35vw;
 	min-width: 200px;
 	margin-top: 60px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 
 	img {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
 	}
+
+	@media (max-width: 768px) {
+		width: 80vw;
+	}
 `;
 
 const Controls = styled.div`
 	display: flex;
 	align-items: center;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+`;
+
+const ButtonWrap01 = styled.div`
+	display: flex;
+	flex-direction: row;
+
+	@media (max-width: 768px) {
+		margin-bottom: 1rem;
+	}
 `;
 
 const PlayButton = styled.button`
@@ -118,7 +140,6 @@ const PlayButton = styled.button`
 	background-color: rgb(249, 249, 249);
 	border: none;
 	letter-spacing: 1.8px;
-	cursor: pointer;
 	transition: all 250ms;
 	font-weight: bold;
 
@@ -132,6 +153,12 @@ const TrailerButton = styled(PlayButton)`
 	border: 1px solid rgb(249, 249, 249);
 	color: rgb(249, 249, 249);
 	text-transform: uppercase;
+	cursor: pointer;
+`;
+
+const ButtonWrap02 = styled.div`
+	display: flex;
+	flex-direction: row;
 `;
 
 const AddButton = styled.button`
@@ -157,15 +184,24 @@ const GroupWatchButton = styled(AddButton)`
 
 const SubTitle = styled.div`
 	color: rgb(249, 249, 249);
-	font-size: 15px;
+	font-size: 1rem;
 	min-height: 20px;
 	margin-top: 26px;
+
+	@media (max-width: 768px) {
+		font-size: 0.9rem;
+	}
 `;
 
 const Description = styled.div`
 	line-height: 1.4;
-	font-size: 20px;
+	font-size: 1.15rem;
 	margin-top: 16px;
 	color: rgb(249, 249, 249);
-	max-width: 760px;
+	max-width: 550px;
+	margin-bottom: 2rem;
+
+	@media (max-width: 768px) {
+		font-size: 1.1rem;
+	}
 `;

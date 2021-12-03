@@ -12,26 +12,28 @@ const Header = () => {
 					<img src="/images/home-icon.svg" alt="Home" />
 					<span>HOME</span>
 				</a>
-				<a href="#/home">
-					<img src="/images/search-icon.svg" alt="Search" />
-					<span>SEARCH</span>
-				</a>
-				<a href="#/home">
-					<img src="/images/watchlist-icon.svg" alt="Watchlist" />
-					<span>WATCHLIST</span>
-				</a>
-				<a href="#/home">
-					<img src="/images/original-icon.svg" alt="Original" />
-					<span>ORIGINAL</span>
-				</a>
-				<a href="#/home">
-					<img src="/images/movie-icon.svg" alt="Movies" />
-					<span>MOVIES</span>
-				</a>
-				<a href="#/home">
-					<img src="/images/series-icon.svg" alt="Series" />
-					<span>SERIES</span>
-				</a>
+				<NavMenuDesktop>
+					<a href="#/home">
+						<img src="/images/search-icon.svg" alt="Search" />
+						<span>SEARCH</span>
+					</a>
+					<a href="#/home">
+						<img src="/images/watchlist-icon.svg" alt="Watchlist" />
+						<span>WATCHLIST</span>
+					</a>
+					<a href="#/home">
+						<img src="/images/original-icon.svg" alt="Original" />
+						<span>ORIGINAL</span>
+					</a>
+					<a href="#/home">
+						<img src="/images/movie-icon.svg" alt="Movies" />
+						<span>MOVIES</span>
+					</a>
+					<a href="#/home">
+						<img src="/images/series-icon.svg" alt="Series" />
+						<span>SERIES</span>
+					</a>
+				</NavMenuDesktop>
 			</NavMenu>
 			<UserImg src="/images/user-default-img.png" />
 		</Nav>
@@ -57,6 +59,15 @@ const Nav = styled.nav`
 
 const Logo = styled.img`
 	width: 80px;
+`;
+
+const NavMenuDesktop = styled.div`
+	display: flex;
+	flex-direction: row;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 `;
 
 const NavMenu = styled.div`
@@ -108,10 +119,6 @@ const NavMenu = styled.div`
 	a:visited,
 	a:active {
 		text-decoration: none;
-	}
-
-	@media (max-width: 768px) {
-		display: none;
 	}
 `;
 
