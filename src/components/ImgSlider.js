@@ -19,16 +19,19 @@ const ImgSlider = () => {
 	return (
 		<Carousel {...settings}>
 			<Wrap>
-				<img alt="" src="/images/slider-badag.jpg" />
+				<img alt="" src="/images/slider-moana.jpg" />
 			</Wrap>
 			<Wrap>
-				<img alt="" src="/images/slider-scale.jpg" />
+				<img alt="" src="/images/slider-bobafet.jpg" />
 			</Wrap>
 			<Wrap>
-				<img alt="" src="/images/slider-scales.jpg" />
+				<img alt="" src="/images/slider-drstrange.jpg" />
 			</Wrap>
 			<Wrap>
-				<img alt="" src="/images/slider-badging.jpg" />
+				<img alt="" src="/images/slider-getback.jpg" />
+			</Wrap>
+			<Wrap>
+				<img alt="" src="/images/slider-mandalorian.jpg" />
 			</Wrap>
 		</Carousel>
 	);
