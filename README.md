@@ -1,4 +1,4 @@
-<img src="public/images/logo.svg" width="400" height="auto">
+<img src="public/images/logo.png" width="350" height="auto">
 
 # Disney Plus Clone with React
 
