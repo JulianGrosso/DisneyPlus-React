@@ -1,4 +1,4 @@
-<img src="public/images/logo.png" width="350" height="auto">
+<a href="https://dp-clone-react03-jg.netlify.app/"><img src="./public/images/Disney_App-Showcase_02_Browser_LOW.png" href="" width="auto" height="auto"></a>
 
 # Disney Plus Clone with React
 
