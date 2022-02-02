@@ -2,7 +2,7 @@
 
 # Disney Plus Clone with React
 
-[Live Demo](https://dp-clone-react03-jg.netlify.app/)
+### [Live Demo](https://dp-clone-react03-jg.netlify.app/)
 
 _Disclaimer: This project was done for educational purposes only._
 
@@ -20,6 +20,8 @@ _Disclaimer: This project was done for educational purposes only._
 - Movie database made with Firebase firestore. All information for the detail page and images is provided by the database.
 
 <a href="https://dp-clone-react03-jg.netlify.app/"><img src="./public/images/Disney_App-Showcase_04_Browser-x3_LOW.jpg.png" width="auto" height="auto"></a>
+
+___
 
 ## Getting Started with Create React App
 
