@@ -5,11 +5,19 @@ import { collection, getDocs } from "firebase/firestore";
 import db from "../firabase";
 import Header from "./Header";
 
+// const youtubeCode = "VK2QbXssjJ0";
+
 // ---- Component ----
 
 const Detail = () => {
 	const { id } = useParams();
 	const [movie, setMovie] = useState();
+
+	const [vPlayer, setVPlayer] = useState(false);
+
+	const OpenCloseVPlayer = () => {
+		setVPlayer(!vPlayer);
+	};
 
 	useEffect(() => {
 		const obtainFirebaseData = async (movieId) => {
@@ -37,11 +45,11 @@ const Detail = () => {
 						</ImageTitle>
 						<Controls>
 							<ButtonWrap01>
-								<PlayButton>
+								<PlayButton onClick={OpenCloseVPlayer}>
 									<img src="/images/play-icon-black.png" alt="Play" />
 									<span>PLAY</span>
 								</PlayButton>
-								<TrailerButton>
+								<TrailerButton onClick={OpenCloseVPlayer}>
 									<img src="/images/play-icon-white.png" alt="Trailer" />
 									<span>Trailer</span>
 								</TrailerButton>
@@ -57,6 +65,22 @@ const Detail = () => {
 						</Controls>
 						<SubTitle>{movie.subTitle}</SubTitle>
 						<Description>{movie.description}</Description>
+						{vPlayer && (
+							<TrailerVPlayer>
+								<YotubeVideo>
+									<CloseButtom onClick={OpenCloseVPlayer}>x</CloseButtom>
+									<iframe
+										width="100%"
+										height="100%"
+										src={`https://www.youtube.com/embed/${movie.trailer}?autoplay=1`}
+										title="YouTube video player"
+										frameBorder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen
+									></iframe>
+								</YotubeVideo>
+							</TrailerVPlayer>
+						)}
 					</>
 				)}
 			</Container>
@@ -96,6 +120,7 @@ const ImageTitle = styled.div`
 	min-height: 170px;
 	width: 35vw;
 	min-width: 200px;
+	max-width: 550px;
 	margin-top: 60px;
 	margin-bottom: 40px;
 
@@ -204,4 +229,51 @@ const Description = styled.div`
 	@media (max-width: 768px) {
 		font-size: 1.1rem;
 	}
+`;
+
+const TrailerVPlayer = styled.div`
+	// padding: 40px;
+
+	background-color: rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(8px);
+
+	width: 100%;
+	height: calc(100vh + 70px);
+	margin-left: -50vw;
+	margin-top: calc(-50vh - 70px);
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	left: 50%;
+	right: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const CloseButtom = styled.button`
+	width: 40px;
+	height: 40px;
+	margin-left: -20px;
+	background-color: #fff;
+	border-radius: 50%;
+	border: none;
+	font-size: 25px;
+	padding-bottom: 5px;
+	color: #000;
+	position: relative;
+	top: -20px;
+	left: 50%;
+
+	cursor: pointer;
+`;
+
+const YotubeVideo = styled.div`
+	height: 60%;
+	width: 60%;
+
+	min-width: 750px;
+	min-height: 422px;
+	max-width: 1120px;
+	max-height: 630px;
 `;
