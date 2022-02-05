@@ -6,7 +6,9 @@ import styled from "styled-components";
 const Header = () => {
 	return (
 		<Nav>
-			<Logo src="/images/logo.svg" />
+			<Logo href="#/home">
+				<img src="/images/logo.svg" alt="Home" />
+			</Logo>
 			<NavMenu>
 				<a href="#/home">
 					<img src="/images/home-icon.svg" alt="Home" />
@@ -57,7 +59,7 @@ const Nav = styled.nav`
 	}
 `;
 
-const Logo = styled.img`
+const Logo = styled.a`
 	width: 80px;
 `;
 
