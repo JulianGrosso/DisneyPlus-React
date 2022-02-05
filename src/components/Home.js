@@ -18,15 +18,22 @@ const Home = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const obtainFirebaseData = async () => {
-			const data = await getDocs(collection(db, "movies"));
-			let tempMovies = data.docs.map((doc) => {
-				return { id: doc.id, ...doc.data() };
-			});
+		let storedMovies = localStorage.getItem("localMovies");
 
-			dispatch(setMovies(tempMovies));
-		};
-		obtainFirebaseData();
+		if (storedMovies == null) {
+			const obtainFirebaseData = async () => {
+				const data = await getDocs(collection(db, "movies"));
+				let tempMovies = data.docs.map((doc) => {
+					return { id: doc.id, ...doc.data() };
+				});
+
+				dispatch(setMovies(tempMovies));
+				localStorage.setItem("localMovies", JSON.stringify(tempMovies));
+			};
+			obtainFirebaseData();
+		} else {
+			dispatch(setMovies(JSON.parse(storedMovies)));
+		}
 	}, [dispatch]);
 
 	return (

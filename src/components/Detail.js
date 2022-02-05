@@ -20,15 +20,21 @@ const Detail = () => {
 	};
 
 	useEffect(() => {
-		const obtainFirebaseData = async (movieId) => {
-			const data = await getDocs(collection(db, "movies"));
-			if (movieId <= data.docs.length - 1) {
-				let movie = data.docs[movieId].data();
-				setMovie(movie);
-			} else {
-			}
-		};
-		obtainFirebaseData(id - 1);
+		let storedMovies = localStorage.getItem("localMovies");
+
+		if (storedMovies == null) {
+			const obtainFirebaseData = async (movieId) => {
+				const data = await getDocs(collection(db, "movies"));
+				if (movieId <= data.docs.length - 1) {
+					let movie = data.docs[movieId].data();
+					setMovie(movie);
+				} else {
+				}
+			};
+			obtainFirebaseData(id - 1);
+		} else {
+			setMovie(JSON.parse(storedMovies)[id - 1]);
+		}
 	}, [id]);
 
 	return (
