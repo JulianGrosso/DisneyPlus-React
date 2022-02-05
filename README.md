@@ -16,7 +16,7 @@ _Disclaimer: This project was done for educational purposes only._
 
 - Login page for access to the platform.
 - Home page with a full-width slider and movies cards for access to movie details.
-- Detail page with movie info.
+- Detail page with movie info and trailer.
 - Movie database made with Firebase firestore. All information for the detail page and images is provided by the database.
 
 <a href="https://dp-clone-react03-jg.netlify.app/"><img src="./github_assets/Disney_App-Showcase_04_Browser-x3_LOW.jpg.png" width="auto" height="auto"></a>
